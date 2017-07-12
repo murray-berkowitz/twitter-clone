@@ -20,6 +20,7 @@ app.use(function(req,res,next){
 })
 
 app.get('/', function(req,res,next){
+    console.log(res.statusCode);
     res.send('Hello!!!!');
 })
 
