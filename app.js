@@ -1,7 +1,13 @@
 const express = require('express');
 const chalk = require('chalk');
+const nunjucks = require('nunjucks'); /*Templating Engine*/
+
 const app = express();
 const port = process.env.PORT || 3000;
+
+app.set('view engine', 'html');
+app.engine('html', nunjucks.render);
+nunjucks.configure('views', {noCache:true});
 
 app.use(function(req,res,next){
     if(req.method == 'GET'){
@@ -19,10 +25,15 @@ app.use(function(req,res,next){
     next();
 })
 
-app.get('/', function(req,res,next){
-    console.log(res.statusCode);
-    res.send('Hello!!!!');
+app.use('/special/*', function(req,res,next){
+    console.log('This is the special section!');
+    next();
+    /*res.send('request ended in special section');*/
 })
+
+app.get('/', function(req,res,next){
+    res.render('index', {title:'Tweetr', people:[{name:'Murray'}, {name:'Annie'}, {name: 'Joel Embiid'}]});
+});
 
 app.get('/news', function(req,res,next){
     res.send('news biatch');

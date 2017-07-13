@@ -10,6 +10,9 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "^2.0.1",
-    "express": "^4.15.3"
+    "e": "0.0.4",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "nunjucks": "^3.0.1"
   }
 }

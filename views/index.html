@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tweetr</title>
+</head>
+
+<style type="text/css">
+	section {
+		margin-bottom:2em;
+	}
+	.wrapper {
+		max-width:75%;
+		margin:0 auto;
+	}
+	.center {
+		text-align: center;
+	}
+	.title {
+		font-style: italic;
+	}
+	.people .person {
+		border:2px solid #FF9B71;
+		border-radius: 6px;
+		padding:8px 12px;
+		margin-bottom:1.5em;
+	}
+</style>
+
+<body>
+	<section class="logo center">
+		<div class="wrapper">
+			<div class="parallelogram">
+				<h1 class="title">{{title}}</h1>
+			</div>
+		</div>
+	</section>
+	<section class="people">
+		<div class="wrapper">
+			{% for person in people %}
+				<div class="person">
+					<h4>{{person.name}}</h4>
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+</body>
+</html>
