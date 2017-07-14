@@ -31,6 +31,19 @@ body {
   margin: 20px 0;
 }
 
+.profile-pic img {
+  max-width: 60px;
+  border-radius: 50%;
+  height: 60px;
+  object-fit:cover;
+}
+.col-md-12.tweet-container {
+  margin-bottom:.5em;
+}
+.tweet-container h2{
+  margin:0!important;
+}
+
 #footer > .container {
   padding-left: 15px;
   padding-right: 15px;

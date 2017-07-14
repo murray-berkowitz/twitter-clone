@@ -16,7 +16,18 @@
     
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.content}}</li>
+      	<div class="col-md-12 tweet-container">
+      		<div class="col-md-2">
+	      		<div class="profile-pic">
+		      		<a href='{{tweet.picture}}' target='_blank'><img src={{tweet.picture}} alt=""></a>
+		      	</div>
+	      	</div>
+	      	<div class="col-md-10">
+	      		<a href='/users/{{tweet.name}}'><h2>{{tweet.name}}</h2></a>
+	      		<p>{{tweet.content}}</p>
+	      		<a href='/tweets/{{tweet.id}}'>Link to tweet</a>
+	      	</div>
+      	</div>
       {% endfor %}
       
     </div>
