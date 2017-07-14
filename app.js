@@ -5,6 +5,9 @@ const nunjucks = require('nunjucks'); /*Templating Engine*/
 const app = express();
 const port = process.env.PORT || 3000;
 
+const routes = require('./routes');
+app.use('/', routes);
+
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
 nunjucks.configure('views', {noCache:true});
@@ -31,14 +34,6 @@ app.use('/special/*', function(req,res,next){
     /*res.send('request ended in special section');*/
 })
 
-app.get('/', function(req,res,next){
-    res.render('index', {title:'Tweetr', people:[{name:'Murray'}, {name:'Annie'}, {name: 'Joel Embiid'}]});
-});
-
-app.get('/news', function(req,res,next){
-    res.send('news biatch');
-})
-
 app.listen(port, function(){
-    console.log(`Server running on ${port}...`);
-})
+  console.log(`listening on port ${ port }`)
+});
