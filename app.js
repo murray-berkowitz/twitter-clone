@@ -1,7 +1,6 @@
 const express = require('express');
 const chalk = require('chalk');
 const nunjucks = require('nunjucks'); /*Templating Engine*/
-
 const app = express();
 const port = process.env.PORT || 3000;
 
