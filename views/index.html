@@ -14,7 +14,7 @@
       {% if showForm %}
         <form action="/tweets" method="POST">
           <label for="name_field">Name:</label>
-          <input name="name" type="text" id="name_field" />
+          <input value='{{name}}' name="name" type="text" id="name_field" />
           <br/>
           <label style="width:9%" for="text_field">Text:</label><input name="text" type="text" id="text_field" style="width: 90%;margin-left:1%" />
 

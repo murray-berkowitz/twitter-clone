@@ -3,9 +3,10 @@ const chalk = require('chalk');
 const nunjucks = require('nunjucks'); /*Templating Engine*/
 const app = express();
 const port = process.env.PORT || 3000;
+var socketio = require('socket.io');
 
 const routes = require('./routes');
-app.use('/', routes);
+app.use('/', routes(io));
 
 app.set('view engine', 'html');
 app.engine('html', nunjucks.render);
@@ -33,6 +34,5 @@ app.use('/special/*', function(req,res,next){
     /*res.send('request ended in special section');*/
 })
 
-app.listen(port, function(){
-  console.log(`listening on port ${ port }`)
-});
+var server = app.listen(port);
+var io = socketio.listen(server);
